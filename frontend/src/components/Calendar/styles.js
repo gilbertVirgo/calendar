@@ -11,6 +11,8 @@ export const Grid = styled.section`
 	row-gap: 10px;
 
 	margin: 0 auto;
+	min-width: 700px;
+	max-width: 1200px;
 `;
 
 export const DayName = styled.h4`
