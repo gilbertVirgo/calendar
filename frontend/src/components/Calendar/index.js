@@ -32,7 +32,7 @@ export default () => {
 	React.useEffect(() => {
 		(async function () {
 			const response = await fetch(
-				`http://35.177.39.146:4000/calendar/${year}/${month}`
+				`http://localhost:4000/calendar/${year}/${month}`
 			);
 			const json = await response.json();
 
