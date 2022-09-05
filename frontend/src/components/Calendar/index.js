@@ -22,6 +22,15 @@ const palette = [
 	"#FF99DD",
 ];
 
+// having some sort of a cors problem which is stopping me from being able to POST
+// but http://lucy-calendar.link should work now!
+
+const APIBaseURL =
+	window.location.hostname === "localhost" ||
+	window.location.hostname === "127.0.0.1"
+		? `http://localhost:4000`
+		: `https://api.lucy-calendar.link`;
+
 export default () => {
 	const location = useLocation();
 
@@ -32,7 +41,7 @@ export default () => {
 	React.useEffect(() => {
 		(async function () {
 			const response = await fetch(
-				`http://localhost:4000/calendar/${year}/${month}`
+				`${APIBaseURL}/calendar/${year}/${month}`
 			);
 			const json = await response.json();
 
@@ -47,7 +56,7 @@ export default () => {
 		(async function () {
 			if (!isLoading) {
 				const response = await fetch(
-					`http://localhost:4000/calendar/${year}/${month}`,
+					`${APIBaseURL}/calendar/${year}/${month}`,
 					{
 						method: "POST",
 						headers: { "Content-Type": "application/json" },
