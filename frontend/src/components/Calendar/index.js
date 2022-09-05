@@ -25,11 +25,7 @@ const palette = [
 // having some sort of a cors problem which is stopping me from being able to POST
 // but http://lucy-calendar.link should work now!
 
-const APIBaseURL =
-	window.location.hostname === "localhost" ||
-	window.location.hostname === "127.0.0.1"
-		? `http://localhost:4000`
-		: `https://api.lucy-calendar.link`;
+const APIBaseURL = `https://api.lucy-calendar.link`;
 
 export default () => {
 	const location = useLocation();
