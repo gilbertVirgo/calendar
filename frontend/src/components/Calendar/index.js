@@ -123,7 +123,10 @@ export default () => {
 				color={palette[(dayIndex + eventIndex) % palette.length]}
 			>
 				<DeleteEventCapture
-					onClick={() => handleDeleteEvent({ day, eventIndex })}
+					onClick={(event) => {
+						event.stopPropagation();
+						handleDeleteEvent({ day, eventIndex });
+					}}
 				/>
 				{event.title}
 			</Event>
